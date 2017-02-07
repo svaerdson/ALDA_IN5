@@ -13,7 +13,7 @@ package alda.heap;
 //boolean isEmpty( )     --> Return true if empty; else false
 //void makeEmpty( )      --> Remove all items
 //******************ERRORS********************************
-//Throws UnderflowException as appropriate
+//Throws IllegalArgumentException as appropriate
 
 /**
 * Implements a binary heap.
@@ -82,23 +82,23 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
  
  /**
   * Find the smallest item in the priority queue.
-  * @return the smallest item, or throw an UnderflowException if empty.
+  * @return the smallest item, or throw an IllegalArgumentException if empty.
   */
  public AnyType findMin( )
  {
      if( isEmpty( ) )
-         throw new UnderflowException( );
+         throw new IllegalArgumentException( );
      return array[ 1 ];
  }
 
  /**
   * Remove the smallest item from the priority queue.
-  * @return the smallest item, or throw an UnderflowException if empty.
+  * @return the smallest item, or throw an IllegalArgumentException if empty.
   */
  public AnyType deleteMin( )
  {
      if( isEmpty( ) )
-         throw new UnderflowException( );
+         throw new IllegalArgumentException( );
 
      AnyType minItem = findMin( );
      array[ 1 ] = array[ currentSize-- ];
@@ -175,4 +175,24 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
          if( h.deleteMin( ) != i )
              System.out.println( "Oops! " + i );
  }
+
+public Object parentIndex(int i) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+public Object firstChildIndex(int i) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+public Object get(int i) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+public Object size() {
+	// TODO Auto-generated method stub
+	return null;
+}
 }
