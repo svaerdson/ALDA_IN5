@@ -18,7 +18,7 @@ package alda.heap;
 /**
 * Implements a binary heap.
 * Note that all "matching" is based on the compareTo method.
-* @author Mark Allen Weiss
+* @author Filip Fellman
 */
 public class DHeap<AnyType extends Comparable<? super AnyType>>
 {
