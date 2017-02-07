@@ -186,13 +186,11 @@ public Object firstChildIndex(int i) {
 	return null;
 }
 
-public Object get(int i) {
-	// TODO Auto-generated method stub
-	return null;
+public AnyType get(int i) {
+	return array[i];
 }
 
-public Object size() {
-	// TODO Auto-generated method stub
-	return null;
+public int size() {
+	return currentSize;
 }
 }
