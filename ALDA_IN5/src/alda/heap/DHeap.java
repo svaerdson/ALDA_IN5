@@ -34,7 +34,7 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
  
  public DHeap( )
  {
-     this( 2 );
+     this( 2 ); // Antal barn är minst två då trädet är minst binärt (annars vore det en länkad lista)
  }
 
  /**
@@ -186,7 +186,7 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
 
 public int parentIndex(int i) {
 	System.out.println(numChild);
-	return (i+numChild-2) / numChild;
+	return (i+numChild-2) / numChild; // Konstanten -2 då en heasp är minst binär (HYPOTES)
 }
 
 public int firstChildIndex(int i) {
