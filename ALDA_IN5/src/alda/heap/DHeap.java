@@ -187,12 +187,23 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
 
 public int parentIndex(int i) {
 	System.out.println(numChild);
-	return (i+numChild-2) / numChild;
+	
+	if (i > 1){
+		return (i+numChild-2) / numChild;
+	}else {
+		throw new IllegalArgumentException();
+	}
+	
 }
 
 public int firstChildIndex(int i) {
-	// TODO Auto-generated method stub
-	return 0;
+	
+	if (i > 0){
+		return (i-1) * numChild + 2;
+	}else {
+		throw new IllegalArgumentException();
+	}
+	
 }
 
 public AnyType get(int i) {
