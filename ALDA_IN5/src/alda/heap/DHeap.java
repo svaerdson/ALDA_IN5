@@ -177,6 +177,7 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
      int i = 37;
 
      for( i = 37; i != 0; i = ( i + 37 ) % numItems )
+    	 System.out.println(i);
          h.insert( i );
      for( i = 1; i < numItems; i++ )
          if( h.deleteMin( ) != i )
@@ -185,7 +186,7 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
 
 public int parentIndex(int i) {
 	System.out.println(numChild);
-	return (i - 1) / numChild;
+	return (i+numChild-2) / numChild;
 }
 
 public int firstChildIndex(int i) {

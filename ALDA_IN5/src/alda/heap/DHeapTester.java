@@ -90,10 +90,10 @@ public class DHeapTester {
 //	 * Även detta test förutsätter att ni gör en metod för att räkna ut
 //	 * förälderns index och kan ignorerars om ni inte gör det.
 //	 */
-//	@Test(expected = IllegalArgumentException.class)
-//	public void testTooLowParentIndex() {
-//		heap.parentIndex(1);
-//	}
+	@Test(expected = IllegalArgumentException.class)
+	public void testTooLowParentIndex() {
+		heap.parentIndex(1);
+	}
 //
 //	/**
 //	 * Detta test förutsätter att ni lägger till en metod i heapen för att räkna
