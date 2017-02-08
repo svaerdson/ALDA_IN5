@@ -28,24 +28,25 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
   */
 	
  private static final int DEFAULT_CAPACITY = 10;	 
- private int nrOfChild;			//Number of children 
+ private int numChild;			//Number of children 
  private int currentSize;      // Number of elements in heap
  private AnyType [ ] array; // The heap array
+ 
  public DHeap( )
  {
-     this( DEFAULT_CAPACITY );
+     this( 2 );
  }
 
  /**
   * Construct the binary heap.
   * @param capacity the capacity of the binary heap.
   */
- public DHeap( int capacity )
+ public DHeap( int d )
  {	 
-	 if (capacity > 1){
-		 nrOfChild = capacity;
+	 if (d > 1) {
+		 numChild = d;
 	     currentSize = 0;
-	     array = (AnyType[]) new Comparable[ capacity + 1 ];
+	     array = (AnyType[]) new Comparable[ DEFAULT_CAPACITY * d ];
 	 }else {
 		 throw new IllegalArgumentException();
 	 }
@@ -183,8 +184,8 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
  }
 
 public int parentIndex(int i) {
-	System.out.println(nrOfChild);
-	return (i + 2) / nrOfChild;
+	System.out.println(numChild);
+	return (i - 1) / numChild;
 }
 
 public int firstChildIndex(int i) {
