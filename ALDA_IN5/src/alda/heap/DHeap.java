@@ -26,6 +26,11 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
  /**
   * Construct the binary heap.
   */
+	
+ private static final int DEFAULT_CAPACITY = 10;	 
+ private int nrOfChild;			//Number of children 
+ private int currentSize;      // Number of elements in heap
+ private AnyType [ ] array; // The heap array
  public DHeap( )
  {
      this( DEFAULT_CAPACITY );
@@ -36,9 +41,14 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
   * @param capacity the capacity of the binary heap.
   */
  public DHeap( int capacity )
- {
-     currentSize = 0;
-     array = (AnyType[]) new Comparable[ capacity + 1 ];
+ {	 
+	 if (capacity > 1){
+		 nrOfChild = capacity;
+	     currentSize = 0;
+	     array = (AnyType[]) new Comparable[ capacity + 1 ];
+	 }else {
+		 throw new IllegalArgumentException();
+	 }
  }
  
  /**
@@ -88,7 +98,7 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
  public AnyType findMin( )
  {
      if( isEmpty( ) )
-         throw new IllegalArgumentException( );
+         throw new IllegalArgumentException( ); //UnderFlowException?
      return array[ 1 ];
  }
 
@@ -99,7 +109,7 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
  public AnyType deleteMin( )
  {
      if( isEmpty( ) )
-         throw new IllegalArgumentException( );
+         throw new IllegalArgumentException( ); //UnderFlowException?
 
      AnyType minItem = findMin( );
      array[ 1 ] = array[ currentSize-- ];
@@ -134,11 +144,6 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
  {
      currentSize = 0;
  }
-
- private static final int DEFAULT_CAPACITY = 10;
-
- private int currentSize;      // Number of elements in heap
- private AnyType [ ] array; // The heap array
 
  /**
   * Internal method to percolate down in the heap.
@@ -177,14 +182,14 @@ public class DHeap<AnyType extends Comparable<? super AnyType>>
              System.out.println( "Oops! " + i );
  }
 
-public Object parentIndex(int i) {
-	// TODO Auto-generated method stub
-	return null;
+public int parentIndex(int i) {
+	System.out.println(nrOfChild);
+	return (i + 2) / nrOfChild;
 }
 
-public Object firstChildIndex(int i) {
+public int firstChildIndex(int i) {
 	// TODO Auto-generated method stub
-	return null;
+	return 0;
 }
 
 public AnyType get(int i) {
