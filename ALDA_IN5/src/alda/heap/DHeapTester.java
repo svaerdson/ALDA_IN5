@@ -101,40 +101,40 @@ public class DHeapTester {
 //	 * uppgiften, så om ni vill kan ni strunta i testet. Det är dock inget vi
 //	 * rekommenderar eftersom metoden gör problemet lättare att lösa.
 //	 */
-//	@Test
-//	public void testFirstChildIndex() {
-//		assertEquals(2, heap.firstChildIndex(1));
-//		assertEquals(6, heap.firstChildIndex(2));
-//		assertEquals(18, heap.firstChildIndex(5));
-//		assertEquals(22, heap.firstChildIndex(6));
-//		assertEquals(26, heap.firstChildIndex(7));
-//		heap = new DHeap<Integer>();
-//		assertEquals(2, heap.firstChildIndex(1));
-//		assertEquals(4, heap.firstChildIndex(2));
-//		assertEquals(6, heap.firstChildIndex(3));
-//		assertEquals(8, heap.firstChildIndex(4));
-//		heap = new DHeap<Integer>(3);
-//		assertEquals(2, heap.firstChildIndex(1));
-//		assertEquals(5, heap.firstChildIndex(2));
-//		assertEquals(11, heap.firstChildIndex(4));
-//		assertEquals(17, heap.firstChildIndex(6));
-//
-//	}
+	@Test
+	public void testFirstChildIndex() {
+		assertEquals(2, heap.firstChildIndex(1));
+		assertEquals(6, heap.firstChildIndex(2));
+		assertEquals(18, heap.firstChildIndex(5));
+		assertEquals(22, heap.firstChildIndex(6));
+		assertEquals(26, heap.firstChildIndex(7));
+		heap = new DHeap<Integer>();
+		assertEquals(2, heap.firstChildIndex(1));
+		assertEquals(4, heap.firstChildIndex(2));
+		assertEquals(6, heap.firstChildIndex(3));
+		assertEquals(8, heap.firstChildIndex(4));
+		heap = new DHeap<Integer>(3);
+		assertEquals(2, heap.firstChildIndex(1));
+		assertEquals(5, heap.firstChildIndex(2));
+		assertEquals(11, heap.firstChildIndex(4));
+		assertEquals(17, heap.firstChildIndex(6));
+
+	}
 //
 //	/**
 //	 * Även detta test förutsätter att ni gör en metod för att räkna ut det
 //	 * första barnets index och kan ignoreras om ni inte gör det.
 //	 */
-//	@Test(expected = IllegalArgumentException.class)
-//	public void testTooLowChildIndex() {
-//		heap.firstChildIndex(0);
-//	}
-//
-//	private void testValues(Integer... expected) {
-//		assertEquals(expected.length, heap.size());
-//		for (int n = 0; n < expected.length; n++)
-//			assertEquals(expected[n], heap.get(n + 1));
-//	}
+	@Test(expected = IllegalArgumentException.class)
+	public void testTooLowChildIndex() {
+		heap.firstChildIndex(0);
+	}
+
+	private void testValues(Integer... expected) {
+		assertEquals(expected.length, heap.size());
+		for (int n = 0; n < expected.length; n++)
+			assertEquals(expected[n], heap.get(n + 1));
+	}
 //
 //	/**
 //	 * Detta test kräver att arrayen i heapen görs tillgänglig via ett par
@@ -149,38 +149,38 @@ public class DHeapTester {
 //	 * 
 //	 * AnyType get(int index){ return array[index]; }
 //	 */
-//	@Test
-//	public void testContent() {
-//		testValues();
-//		heap.insert(17);
-//		testValues(17);
-//		heap.insert(23);
-//		testValues(17, 23);
-//		heap.insert(5);
-//		testValues(5, 23, 17);
-//		heap.insert(12);
-//		testValues(5, 23, 17, 12);
-//		heap.insert(100);
-//		heap.insert(51);
-//		heap.insert(52);
-//		testValues(5, 23, 17, 12, 100, 51, 52);
-//		heap.insert(4);
-//		testValues(4, 5, 17, 12, 100, 51, 52, 23);
-//		heap.insert(70);
-//		testValues(4, 5, 17, 12, 100, 51, 52, 23, 70);
-//		heap.insert(10);
-//		testValues(4, 5, 10, 12, 100, 51, 52, 23, 70, 17);
-//		heap.insert(1);
-//		testValues(1, 5, 4, 12, 100, 51, 52, 23, 70, 17, 10);
-//
-//		System.err.println(heap);
-//		assertEquals(1, (int) heap.deleteMin());
-//		System.err.println(heap);
-//		testValues(4, 5, 10, 12, 100, 51, 52, 23, 70, 17);
-//		assertEquals(4, (int) heap.deleteMin());
-//		testValues(5, 17, 10, 12, 100, 51, 52, 23, 70);
-//		assertEquals(5, (int) heap.deleteMin());
-//		testValues(10, 17, 70, 12, 100, 51, 52, 23);
-//	}
+	@Test
+	public void testContent() {
+		testValues();
+		heap.insert(17);
+		testValues(17);
+		heap.insert(23);
+		testValues(17, 23);
+		heap.insert(5);
+		testValues(5, 23, 17);
+		heap.insert(12);
+		testValues(5, 23, 17, 12);
+		heap.insert(100);
+		heap.insert(51);
+		heap.insert(52);
+		testValues(5, 23, 17, 12, 100, 51, 52);
+		heap.insert(4);
+		testValues(4, 5, 17, 12, 100, 51, 52, 23);
+		heap.insert(70);
+		testValues(4, 5, 17, 12, 100, 51, 52, 23, 70);
+		heap.insert(10);
+		testValues(4, 5, 10, 12, 100, 51, 52, 23, 70, 17);
+		heap.insert(1);
+		testValues(1, 5, 4, 12, 100, 51, 52, 23, 70, 17, 10);
+
+		System.err.println(heap);
+		assertEquals(1, (int) heap.deleteMin());
+		System.err.println(heap);
+		testValues(4, 5, 10, 12, 100, 51, 52, 23, 70, 17);
+		assertEquals(4, (int) heap.deleteMin());
+		testValues(5, 17, 10, 12, 100, 51, 52, 23, 70);
+		assertEquals(5, (int) heap.deleteMin());
+		testValues(10, 17, 70, 12, 100, 51, 52, 23);
+	}
 
 }
