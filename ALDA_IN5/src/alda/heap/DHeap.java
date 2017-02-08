@@ -1,4 +1,4 @@
-// Klassen i denna fil måste döpas om till DHeap för att testerna ska fungera. 
+// Klassen i denna fil mï¿½ste dï¿½pas om till DHeap fï¿½r att testerna ska fungera. 
 package alda.heap;
 
 //DHeap class
@@ -19,6 +19,7 @@ package alda.heap;
 * Implements a binary heap.
 * Note that all "matching" is based on the compareTo method.
 * @author Filip Fellman
+* @author Oskar Steinhauf
 */
 public class DHeap<AnyType extends Comparable<? super AnyType>>
 {
