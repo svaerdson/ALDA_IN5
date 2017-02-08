@@ -20,6 +20,7 @@ package alda.heap;
 * Note that all "matching" is based on the compareTo method.
 * @author Filip Fellman
 * @author Oskar Steinhauf
+* @author Erik Svärdson
 */
 public class DHeap<AnyType extends Comparable<? super AnyType>>
 {
