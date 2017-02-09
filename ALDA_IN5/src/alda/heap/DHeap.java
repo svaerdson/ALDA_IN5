@@ -82,7 +82,7 @@ public class DHeap<AnyType extends Comparable<? super AnyType>> {
 		// Percolate up
 		int hole = ++currentSize; // hole = tom plats i Heapen
 		array[0] = x;
-		for (array[0] = x; hole>1 && x.compareTo(findParent(hole)) < 0; hole = parentIndex(hole)) {
+		for (array[0] = x; hole > 1 && x.compareTo(findParent(hole)) < 0; hole = parentIndex(hole)) {
 			array[hole] = findParent(hole);
 		}
 		array[hole] = x;
@@ -162,21 +162,11 @@ public class DHeap<AnyType extends Comparable<? super AnyType>> {
 	 *            the index at which the percolate begins.
 	 */
 	private void percolateDown(int hole) {
-		int child;
 		AnyType tmp = array[hole];
 
-		for (; hole * 2 <= currentSize; hole = child) {
-			child = hole * 2;
-			if (child != currentSize && array[child + 1].compareTo(array[child]) < 0){
-				child++;
+		for (; findMinimumChild(hole) <= currentSize && tmp.compareTo(minimumChild(hole)) >= 0; hole = findMinimumChild(hole)) {
+				array[hole] = minimumChild(hole);
 			}
-			if (array[child].compareTo(tmp) < 0){
-				array[hole] = array[child];
-			}
-			else{
-				break;
-			}
-		}
 		array[hole] = tmp;
 	}
 
@@ -199,6 +189,33 @@ public class DHeap<AnyType extends Comparable<? super AnyType>> {
 		}
 
 	}
+	
+	private int findMinimumChild(int parent) {
+		int firstChild = firstChildIndex(parent);
+		
+		if (firstChild > currentSize) {
+			return Integer.MAX_VALUE;
+		}
+		
+		AnyType minimumChild = array[firstChild];
+		int compareChild = firstChild;
+		
+		for (int i = 1; i < numChild; i++) {
+			if (firstChild + i <= currentSize) {
+				AnyType compareVar = array[firstChild + i];
+				if (compareVar != null  && minimumChild.compareTo(compareVar) > 0) {
+					compareChild = firstChild + i;
+					minimumChild = compareVar;
+				}
+			} 
+		}
+		
+		return compareChild;
+	}
+	
+    private AnyType minimumChild(int parent){
+        return get(findMinimumChild(parent));
+    }
 
 	public AnyType get(int i) {
 		return array[i];

@@ -172,9 +172,7 @@ public class DHeapTester {
 		heap.insert(1);
 		testValues(1, 5, 4, 12, 100, 51, 52, 23, 70, 17, 10);
 
-		System.err.println(heap);
 		assertEquals(1, (int) heap.deleteMin());
-		System.err.println(heap);
 		testValues(4, 5, 10, 12, 100, 51, 52, 23, 70, 17);
 		assertEquals(4, (int) heap.deleteMin());
 		testValues(5, 17, 10, 12, 100, 51, 52, 23, 70);
