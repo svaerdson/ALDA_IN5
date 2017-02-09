@@ -1,5 +1,5 @@
 package alda.heap;
 
-public class UnderflowException extends RuntimeException{
+public class UnderflowException extends RuntimeException {
 
 }
