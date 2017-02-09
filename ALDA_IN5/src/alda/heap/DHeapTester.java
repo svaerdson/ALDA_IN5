@@ -48,7 +48,7 @@ public class DHeapTester {
 	 */
 	@Test
 	public void testConstructors() {
-		heap = new DHeap<Integer>();  // Skapar en binär heap
+		heap = new DHeap<Integer>(); // Skapar en binär heap
 		heap = new DHeap<Integer>(2); // Skapar ytterligare en binär heap
 		heap = new DHeap<Integer>(3); // Skapar en 3-heap, dvs en heap där varje
 		// nod har 3 barn
@@ -133,18 +133,16 @@ public class DHeapTester {
 	private void testValues(Integer... expected) {
 		assertEquals(expected.length, heap.size());
 		for (int n = 0; n < expected.length; n++)
-
 			assertEquals(expected[n], heap.get(n + 1));
 	}
 
 	/**
 	 * Detta test kräver att arrayen i heapen görs tillgänglig via ett par
 	 * metoder. Metoden size är inte mycket att säga om, den borde antagligen
-	 * funnits i orginalet. get däremot bryter inkapslingen och är
-	 * bara till för att vi ska kunna testa. Detta är naturligtvis förkastligt,
-	 * men ibland nödvändigt. Den högsta skyddsnivån (=bästa) get kan ha är
-	 * deafult-nivån. Detta test måste fungera, så ni måste lägga till
-	 * metoderna:
+	 * funnits i orginalet. get däremot bryter inkapslingen och är bara till för
+	 * att vi ska kunna testa. Detta är naturligtvis förkastligt, men ibland
+	 * nödvändigt. Den högsta skyddsnivån (=bästa) get kan ha är deafult-nivån.
+	 * Detta test måste fungera, så ni måste lägga till metoderna:
 	 * 
 	 * public int size(){ return currentSize; }
 	 * 
